@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        margin: auto;
+      }
+      form input,
+      form textarea,
+      form button {
+        padding: 20px;
+        margin-bottom: 20px;
+        outline: none;
+        border: none;
+        background-color: #ddd;
+      }
+      form button {
+        background-color: #333;
+        cursor: pointer;
+        color: #fff;
+      }
+      h1 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Contact Us</h1>
+    <form class="contact_form" action="#">
+      <input class="first_name" type="text" placeholder="First Name" />
+      <input class="last_name" type="text" placeholder="Last Name" />
+      <input class="email" type="email" placeholder="Email Address" />
+      <select name="" id="">
+        <option value="">93</option>
+        <option value="">355</option>
+        <option value="">213</option>
+        <option value="">61</option>
+        <option value="">880</option>
+        <option value="">91</option>
+      </select>
+      <input class="phone" type="phone" placeholder="983..." />
+      <div>
+        <p>Gender :</p>
+        <input type="radio" id="male" name="gender" value="male" />
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female" />
+        <label for="female">Female</label>
+      </div>
+      <div>
+        Country of Residence :
+        <select name="" id="">
+          <option value="">Indian</option>
+          <option value="">Japanese</option>
+          <option value="">Australian</option>
+        </select>
+      </div>
+      <div>
+        Additional Information :
+        <textarea
+          class="msg"
+          name=""
+          id=""
+          cols="65"
+          rows="10"
+          placeholder="Your message..."
+        ></textarea>
+      </div>
+      <div
+        class="g-recaptcha"
+        data-sitekey="6Lf6gnMkAAAAANGUKFsvjcpzltaiu6_f9sGDQK_3"
+      ></div>
+      <br />
+      <button type="submit">Send</button>
+    </form>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <script>
+      const form = document.querySelector(".contact_form");
+    </script>
+  </body>
+</html>
