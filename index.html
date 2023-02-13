@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
     <style>
       form {
         display: flex;
@@ -30,6 +30,22 @@
       h1 {
         text-align: center;
       }
+      .one {
+        display: flex;
+      }
+      #four {
+        height: fit-content;
+        margin-top: 17px;
+      }
+      .two {
+        display: flex;
+      }
+      .three {
+        margin-top: 22px;
+      }
+      .five {
+        margin-top: 17px;
+      }
     </style>
   </head>
   <body>
@@ -38,28 +54,43 @@
       <input class="first_name" type="text" placeholder="First Name" />
       <input class="last_name" type="text" placeholder="Last Name" />
       <input class="email" type="email" placeholder="Email Address" />
-      <select name="" id="">
-        <option value="">93</option>
-        <option value="">355</option>
-        <option value="">213</option>
-        <option value="">61</option>
-        <option value="">880</option>
-        <option value="">91</option>
-      </select>
+      <div class="one">
+        <p>Country Code :</p>
+        <select name="" id="four">
+          <option value="91">91</option>
+          <option value="355">355</option>
+          <option value="213">213</option>
+          <option value="61">61</option>
+          <option value="880">880</option>
+          <option value="93">93</option>
+        </select>
+      </div>
       <input class="phone" type="phone" placeholder="983..." />
-      <div>
+      <div class="two">
         <p>Gender :</p>
-        <input type="radio" id="male" name="gender" value="male" />
-        <label for="male">Male</label>
-        <input type="radio" id="female" name="gender" value="female" />
-        <label for="female">Female</label>
+        <input
+          type="radio"
+          id="male"
+          name="gender"
+          value="male"
+          class="three"
+        />
+        <label for="male" class="three">Male</label>
+        <input
+          type="radio"
+          id="female"
+          name="gender"
+          value="female"
+          class="three"
+        />
+        <label for="female" class="three">Female</label>
       </div>
       <div>
         Country of Residence :
-        <select name="" id="">
-          <option value="">Indian</option>
-          <option value="">Japanese</option>
-          <option value="">Australian</option>
+        <select name="" id="six">
+          <option value="Indian">Indian</option>
+          <option value="Japanese">Japanese</option>
+          <option value="Australian">Australian</option>
         </select>
       </div>
       <div>
@@ -72,12 +103,12 @@
           rows="10"
           placeholder="Your message..."
         ></textarea>
-      </div>
+      <!-- </div>
       <div
         class="g-recaptcha"
         data-sitekey="6Lf6gnMkAAAAANGUKFsvjcpzltaiu6_f9sGDQK_3"
       ></div>
-      <br />
+      <br /> -->
       <button type="submit">Send</button>
     </form>
 
@@ -85,6 +116,35 @@
 
     <script>
       const form = document.querySelector(".contact_form");
+      function sendMsg(e) {
+        e.preventDefault();
+
+        const firstName = document.querySelector(".first_name");
+        const lastName = document.querySelector(".last_name");
+              email = document.querySelector(".email");
+              phone = document.querySelector(".phone");
+              msg = document.querySelector(".msg");
+              countrycode = document.querySelector("#four");
+              countryOfResidence = document.querySelector("#six");
+              gender = document.querySelector(".three");
+
+
+        Email.send({
+          SecureToken: "c1be4267-cbdd-4b61-b457-c9e93c0d9a4e",
+          To: "info@webmonk.solutions",
+          From: "email.value",
+          Subject: "Contact Form",
+          Body: "msg.value",
+          FirstName: "firstName.value",
+          LastName: "lastName.value",
+          Phone: "phone.value",
+          CountryCode: "countrycode.value",
+          countryOfResidence: "countryofResidence",
+          gender: "gender.value"
+        }).then((message) => alert(message));
+      }
+
+      form.addEventListener("submit", sendMsg);
     </script>
   </body>
 </html>
